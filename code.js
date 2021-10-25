@@ -71,6 +71,8 @@ async function start() {
       prepareExcel(fullname, args.excel);
       createScoreCard(fullname);
    }
+   
+   //stores userids in excel
    handleuser(page, browser);
    function prepareExcel(fullname, excelFileName) {
       let wb = new excel4node.Workbook();
@@ -80,6 +82,8 @@ async function start() {
       }
       wb.write(excelFileName);
    }
+   
+   //creates certificate pdfs for each user
    function createScoreCard(fullname) {
       for (let i = 0; i < fullname.length; i++) {
          let templateFileBytes = fs.readFileSync("Template.pdf");
